@@ -13,4 +13,9 @@ def load_data():
         data = json.load(file)
     return data
 
-
+@app.get("/patients/{id}")
+def add_patient(id: str):
+    data = load_data()
+    for i in data:
+        if i["id"] == id:
+            return {"message": i}
